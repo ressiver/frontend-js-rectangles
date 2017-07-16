@@ -1,7 +1,12 @@
 ﻿'use strict'
 
 function areIntersected(r1, r2) {
-	if (r1.left >= (r2.left + r2.width) || (r1.left + r1.width) <= r2.left || r1.top > (r2.top + r2.height) || (r1.top + r1.height) < r2.top) {
+	let rightSideR1 = r1.left + r1.width;
+	let bottomSideR1 = r1.top + r1.height;
+	let rightSideR2 = r2.left + r2.width;
+	let bottomSideR2 = r2.top + r2.height;
+	if (r1.left >= rightSideR2 || rightSideR1 <= r2.left ||
+		r1.top > bottomSideR2 || bottomSideR1 < r2.top) {
 		return false;
 	} else {
 		return true;
